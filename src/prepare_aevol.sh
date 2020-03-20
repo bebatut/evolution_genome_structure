@@ -1,7 +1,6 @@
 cd src
-git clone git@gitlab.inria.fr:beslon/aevol_ltisee.git
+tar -zxvf aevol_ltisee.tar.gz
 cd aevol_ltisee
-git checkout tags/v1.0.1
 aclocal
 automake
 autoconf
