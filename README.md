@@ -7,9 +7,9 @@ Process:
 
 # Data
 
-Input: clonal population of 1,024 organisms built using the best individual from a population of 1,024 organisms that evolved during 10 million generations
+**Input**: clonal population of 1,024 organisms built using the best individual from a population of 1,024 organisms that evolved during 10 million generations
 
-Simulations:
+**Scenarios**:
 - Evolution during 500,000 generations after one parameter change
 - 7 conditions
     - control (control)
@@ -23,9 +23,9 @@ Simulations:
 
 Parameter | control | mut+ | mut- | sel+ | sel- | pop+ | pop-
 --- | --- | --- | --- | --- | --- | --- | ---
-Population size | 1,024 |  |  |  | 4,096 | 256
-Spontaneous small mutation rates | 1e-07 | 4e-07 | 2.5e-08 | | | |
-Selection pressure | 1,000 | | | 4,000 | 250 | |
+Population size | 1,024 | 1,024 | 1,024 | 1,024 | 4,096 | 256
+Spontaneous mutation rates | 1e-07 | 1e-06 | 1e-08 | 1e-07 | 1e-07 | 1e-07 | 1e-07
+Selection pressure | 1,000 | 1,000 | 1,000 | 4,000 | 250 | 1,000 | 1,000
 
 # Usage
 
@@ -38,14 +38,44 @@ Selection pressure | 1,000 | | | 4,000 | 250 | |
     $ conda env create -f environment.yaml
     ```
 
-## Analysis of the scenarios
 
+
+## Launch the scenarios
+
+- Get access to [aevol ltisee](https://gitlab.inria.fr/beslon/aevol_ltisee/)
+- Prepare aevol executable
+
+    ```
+    $ ./src/prepare_aevol.sh
+    ```
+
+- Prepare a scenario
+
+    ```
+    $ source activate aevol_scenarios
+    $ python \
+        src/prepare_scenario.py \
+        --scenario <'control'|'mut+'|'mut-'|'sel+'|'sel-'|'pop+'|'pop-'> \
+        --seed <0|1|2|3|4>
+    ```
+
+- Launch a scenario
+
+    ```
+    $ python \
+        src/launch_scenario.py \
+        --scenario <'control'|'mut+'|'mut-'|'sel+'|'sel-'|'pop+'|'pop-'> \
+        --seed <0|1|2|3|4> \
+    ```
+   
+## Analysis of the scenarios
+ 
 - Launch the conda environment
 
     ```
     $ source activate aevol_scenarios
     ```
- 
+
 - Launch Jupyter
 
     ```
