@@ -4,5 +4,5 @@ cd aevol_ltisee
 aclocal
 automake
 autoconf
-./configure
+./configure --without-x
 make
