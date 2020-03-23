@@ -1,2 +1,5 @@
 __pycache__
 .ipynb_checkpoints
+src/aevol/
+Miniconda3-latest-Linux-x86_64.sh
+data
