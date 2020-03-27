@@ -1,6 +1,6 @@
 cd src
-tar -zxvf aevol_ltisee.tar.gz
-cd aevol_ltisee
+tar -zxvf aevol.tar.gz
+cd aevol
 aclocal
 automake
 autoconf
