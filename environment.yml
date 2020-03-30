@@ -1,0 +1,8 @@
+name: aevol_scenario
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+  - r
+dependencies:
+  - pyyaml
