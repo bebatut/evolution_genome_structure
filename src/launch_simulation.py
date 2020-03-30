@@ -59,7 +59,10 @@ def dump_params(params, fp):
                 for g in params[p]:
                     param_f.write('ENV_ADD_GAUSSIAN %s %s %s\n' % (g['h'], g['m'], g['s']))
             else:
-                param_f.write('%s %s\n' % (p, params[p]))
+                if type(params[p]) == bool:
+                    param_f.write('%s %s\n' % (p, str(params[p]).lower()))
+                else:
+                    param_f.write('%s %s\n' % (p, params[p]))
 
 
 def create_param_fp(params, simu, seed, param_fp):
