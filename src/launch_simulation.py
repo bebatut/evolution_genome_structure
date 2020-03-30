@@ -57,7 +57,7 @@ def dump_params(params, fp):
         for p in params:
             if p == 'ENV_ADD_GAUSSIAN':
                 for g in params[p]:
-                    param_f.write('ENV_ADD_GAUSSIAN %s %s %s\n' % (g.h, g.m, g.s))
+                    param_f.write('ENV_ADD_GAUSSIAN %s %s %s\n' % (g['h'], g['m'], g['s']))
             else:
                 param_f.write('%s %s\n' % (p, params[p]))
 
