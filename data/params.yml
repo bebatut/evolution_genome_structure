@@ -1,0 +1,49 @@
+STRAIN_NAME: 'basic_example'
+SEED: 587549
+# 
+INIT_POP_SIZE: 1024
+WORLD_SIZE: '32 32'
+MIN_GENOME_LENGTH: 1
+FUZZY_FLAVOR: 0
+# selection
+SELECTION_SCHEME: 'fitness_proportionate 1000'
+# mutation rates
+POINT_MUTATION_RATE: 5e-6
+SMALL_INSERTION_RATE: 5e-6
+SMALL_DELETION_RATE: 5e-6
+MAX_INDEL_SIZE: 6
+# rearrangement rates
+DUPLICATION_RATE: 5e-5
+DELETION_RATE: 5e-5
+TRANSLOCATION_RATE: 5e-5
+INVERSION_RATE: 5e-5
+WITH_ALIGNMENTS: False
+# target function
+ENV_SAMPLING: 300
+ENV_ADD_GAUSSIAN:
+    - 
+        h: 0.5
+        s: 0.05
+        m: 0.2
+    -
+        h: 0.5
+        s: 0.05
+        m: 0.6
+    -
+        h: 0.5
+        s: 0.05
+        m: 0.8
+MAX_TRIANGLE_WIDTH: 0.005
+ENV_VARIATION: autoregressive_height_variation 0.05 5000 7687534
+ENV_AXIS_FEATURES: 'METABOLISM'
+# recording
+BACKUP_STEP: 10000
+RECORD_TREE: True
+MORE_STATS: True
+# plasmid
+ALLOW_PLASMIDS: False
+# transfer
+WITH_TRANSFER: False
+TRANSFER_REPL_RATE: 0.1
+REPL_TRANSFER_WITH_CLOSE_POINTS: True
+REPL_TRANSFER_DETACH_RATE: 0.3
