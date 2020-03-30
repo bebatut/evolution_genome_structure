@@ -206,5 +206,5 @@ if __name__ == "__main__":
     if not aevol_bin_dp.is_dir():
         raise ValueError('Need to compile aevol first')
 
-    prepare_simulation(args.seed, args.simu, aevol_bin_dp)
+    prepare_simulation(args.simu, args.seed, aevol_bin_dp)
     launch_simulation(args.simu, aevol_bin_dp)
