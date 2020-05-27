@@ -20,28 +20,30 @@ Test of different hypotheses for reductive genome evolution
 
 - [conda](https://conda.io/miniconda.html)
 - Dependencies for aevol: build tools (make, etc), compression library (zlib), Bo ost library, X libraries
+
+    For Ubuntu (on a new VM)
+
+    - Run dedicated script
+
+        ```
+        $ bash src/prepare_ubuntu.sh
+        ```
+
+    - Log out
+
 - Create the conda environment:
 
     ```
-    $ conda env create -f environment.yaml
+    $ conda env create -f environment.yml
     ```
 
-For Ubuntu (on a new VM)
+## Run WT and scenarios
 
-- Run dedicated script
-
-    ```
-    $ bash src/prepare_ubuntu.sh
-    ```
-
-- Log out
-- Create the conda environment:
+- Prepare aevol
 
     ```
-    $ conda env create -f environment.yaml
+    $ bash src/prepare_aevol.sh
     ```
-
-## Prepare and launch the WT
 
 - Prepare and launch a WT
 
@@ -53,29 +55,40 @@ For Ubuntu (on a new VM)
         --seed <0...9>
     ```
 
-## Launch the scenarios
-
 - Prepare and launch a scenario
 
     ```
-    $ source activate aevol_scenario
+    $ (source activate aevol_scenario)
     $ python \
         src/launch_simulation.py \
-        --simu <simu_to_launch> \
-        --seed <0|1|2|3|4>
+        --simu <scenario to launch> \
+        --seed <0...9>
     ```
+
+    Possible scenarios:
+
+    Scenario | Type of scenario | Shortcut for script
+    --- | --- | ---
+    Increase of the population size | Muller's ratchet | `pop+`
+    Reduction of population size | Muller's ratchet | `pop-`
+    Increase of selection pressure | Muller's ratchet | `sel+`
+    Reduction of population pressure | Muller's ratchet | `sel-`
+    Stop of the transfer | Muller's ratchet | `transfer-`
+    Increase of local mutation rates | Increase of mutation rates | `mut+`
+    Decrease of local mutation rates | Increase of mutation rates | `mut-`
+    Increase of rearrangement rates | Increase of mutation rates | `rear+`
+    Decrease of rearrangement rates | Increase of mutation rates | `rear-`
+    Stabilisation of the environment | Environmental changes | `stab-env`
+    Change of the environmental target | Environmental changes | `change-env`
+    Neutralization of one part of the environmental target | Environmental changes | `neut-env`
+    Removal of one part of the environmental target | Environmental changes | `env-`
    
 # Analyses of the scenarios
  
-- Launch the conda environment
+- Launch Jupyter notebooks
 
     ```
-    $ source activate aevol_scenarios
-    ```
-
-- Launch Jupyter
-
-    ```
+    $ (source activate aevol_scenarios)
     $ jupyter notebook
     ```
 
